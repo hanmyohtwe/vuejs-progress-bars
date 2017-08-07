@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ProgressBar.js - Password Strength Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/v2.1.3/normalize.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.js"></script>
+</head>
+
+<body>
+    <h1><span>Vue.js</span> Progress Bar</h1>
+    <div id="app">
+        <div v-for="(index, bar) in bars" class="shell">
+            <div class="bar" :style="{ width: bar + '%' }" .>
+                <span>{{ bar }}%</span>
+                <input type="radio" id="radio-bar" value="{{ index }}" v-model="picked" v-on:change="set(index)">
+            </div>
+        </div>
+        <span v-for="(index, button) in buttons">
+    <button value="{{ button }}" @click.prevent="makeProgress(button)">{{ button }}</button>
+  </span>
+        <br>
+        <p>Selected Bar: {{ picked }}</p>
+        <p>Button Value: {{ buttonVal }}</p>
+    </div>
+    <!-- <p>Ref: https://jsfiddle.net/tfvouu61/2/</p> -->
+
+    <script src="main.js"></script>
+</body>
+
+</html>
